@@ -1,3 +1,6 @@
+###Webscapes NY Senate website to find senate vers of assembly bill###
+###To do: automatically find assembly bill from email###
+
 from bs4 import BeautifulSoup
 import requests
 
