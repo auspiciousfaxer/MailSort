@@ -45,8 +45,8 @@ def findSameAs(aBill):
 if __name__ == "__main__":
     allEdits = [] # List of list of sBills
     emailNames = []
-    emails = "/Users/ronalddeng/Desktop/internship/email sort/emails"
-    csv = "/Users/ronalddeng/Desktop/internship/email sort/email csv.txt"
+    emails = "path/to/folder/of/emails"
+    csv = "path/to/output/.txt/file"
     for filename in os.listdir(emails):
         if filename.endswith(".eml"):
             inputFilePath = os.path.join(emails, filename)
@@ -70,6 +70,3 @@ if __name__ == "__main__":
             file.write("\n")
             
     print("done")
-
-
-            
