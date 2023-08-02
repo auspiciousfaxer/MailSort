@@ -44,11 +44,9 @@ def findSameAs(aBill): ###Finds same-as of an assembly bill###
         sBill = clean(sBill.text)
         return(sBill)
 
-if __name__ == "__main__":
-    allEdits = []
+def process(emails, csv):
+    allEdits = [] # List of list of sBills
     emailNames = []
-    emails = "path/to/folder/of/emails" # Replace with path to the folder of all the emails
-    csv = "path/to/output/file" # Replace with path to the .txt file you want the outputs to go to
     for filename in os.listdir(emails):
         if filename.endswith(".eml"):
             inputFilePath = os.path.join(emails, filename)
@@ -70,5 +68,12 @@ if __name__ == "__main__":
             line = clean2(str(line))
             file.write(str(line))
             file.write("\n")
+
+if __name__ == "__main__":
+    emails = "/path/to/email/folder" # Replace with the pathname to the folder with the .eml files
+    csv = "/path/to/output/file" # Replace with the pathname to the csv file you want to write
+    process(emails,csv)
+    print("done")
+
             
     print("done")
