@@ -73,7 +73,3 @@ if __name__ == "__main__":
     emails = "/path/to/email/folder" # Replace with the pathname to the folder with the .eml files
     csv = "/path/to/output/file" # Replace with the pathname to the csv file you want to write
     process(emails,csv)
-    print("done")
-
-            
-    print("done")
