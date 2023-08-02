@@ -57,7 +57,7 @@ if __name__ == "__main__":
                     editedBills.append(findSameAs(bill))
                 else:
                     editedBills.append(clean(bill))
-            editedBills = str(list(set(editedBills))).replace(',',' ')
+            editedBills = str(list(set(editedBills))).replace(',','')
             allEdits.append(editedBills)
             emailNames.append({filename})
             
