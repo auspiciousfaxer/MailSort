@@ -1,21 +1,23 @@
+###Input emails, outputs .csv file you can import to Sheets/Excel###
+
 from bs4 import BeautifulSoup
 import requests
 import re
 import os
 
-def clean(name):
+def clean(name): ###Just for aesthetics###
     name = name.replace('.','')
     name = name.replace('-','')
     name = name.replace(' ','')
     name = name.replace('\n','')
     return(name)
 
-def clean2(name):
+def clean2(name): ###Same###
     name = name.replace('None ','')
     translationTable = str.maketrans('', '', '\'{}[]\"()\n')
     return name.translate(translationTable)
 
-def findBillNames(inputFile):
+def findBillNames(inputFile): ###Finds all bills mentioned in an email###
     with open(inputFile, 'r', encoding='utf-8') as doc:
         content = doc.read()
     content = content.replace('=20',' ')
@@ -24,7 +26,7 @@ def findBillNames(inputFile):
     bill_names = list(set([name.upper() for name in bill_names]))
     return bill_names
 
-def findSameAs(aBill):
+def findSameAs(aBill): ###Finds same-as of an assembly bill###
     aBill = clean(aBill)
     if(aBill[-1].isalpha()):
        amnd = aBill[-1]
@@ -43,10 +45,10 @@ def findSameAs(aBill):
         return(sBill)
 
 if __name__ == "__main__":
-    allEdits = [] # List of list of sBills
+    allEdits = []
     emailNames = []
-    emails = "path/to/folder/of/emails"
-    csv = "path/to/output/.txt/file"
+    emails = "path/to/folder/of/emails" # Replace with path to the folder of all the emails
+    csv = "path/to/output/file" # Replace with path to the .txt file you want the outputs to go to
     for filename in os.listdir(emails):
         if filename.endswith(".eml"):
             inputFilePath = os.path.join(emails, filename)
