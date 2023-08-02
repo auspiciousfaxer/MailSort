@@ -1,4 +1,4 @@
-###Webscapes NY Senate website to find senate vers of assembly bill###
+###Webscrapes NY Senate website to find senate vers of assembly bill###
 
 from bs4 import BeautifulSoup
 import requests
